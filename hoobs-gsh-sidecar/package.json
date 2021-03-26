@@ -1,7 +1,7 @@
 {
-    "name": "hoobs-ring-sidecar",
+    "name": "hoobs-gsh-sidecar",
     "version": "1.0.1",
-    "description": "HOOBS Plugin for Ring.",
+    "description": "HOOBS Plugin for GSH.",
     "license": "MIT",
     "repository": {
         "type": "git",
@@ -10,11 +10,7 @@
     "bugs": {
         "url": "https://github.com/hoobs-org/sidecars/issues"
     },
-    "main": "routes.js",
     "author": {
         "name": "Michael Kellsy"
-    },
-    "dependencies": {
-        "axios": "^0.21.1"
     }
 }
