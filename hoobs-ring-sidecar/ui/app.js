@@ -1,3 +1,5 @@
+$hoobs.config.setup();
+
 const fields = {
     login: document.querySelectorAll(".login"),
     validate: document.querySelectorAll(".validate"),
