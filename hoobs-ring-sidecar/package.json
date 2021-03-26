@@ -1,0 +1,20 @@
+{
+    "name": "hoobs-ring-sidecar",
+    "version": "1.0.1",
+    "description": "HOOBS Plugin for Ring.",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/hoobs-org/sidecars.git"
+    },
+    "bugs": {
+        "url": "https://github.com/hoobs-org/sidecars/issues"
+    },
+    "main": "routes.js",
+    "author": {
+        "name": "Dusty Greif"
+    },
+    "dependencies": {
+        "axios": "^0.21.1"
+    }
+}
