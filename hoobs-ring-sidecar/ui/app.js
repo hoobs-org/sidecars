@@ -23,7 +23,7 @@ async function login() {
     const password = fields.password.value;
     const verification = fields.verification.value;
 
-    const response = await $hoobs.plugin($bridge, "homebridge-ring", "login", { username, password, verification});
+    const response = await $hoobs.plugin($bridge, "homebridge-ring", "login", { username, password, verification });
 
     if (response.error) alert("Invalid Username or Password");
 
