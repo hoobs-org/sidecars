@@ -1,6 +1,14 @@
 let interval, dialog;
 
-function update(token) {
+$hoobs.config.setup();
+
+async function update(token) {
+    const config = await $hoobs.config.get();
+
+    config.token = token;
+
+    await $hoobs.config.update(config);
+
     if (interval) clearInterval(interval);
     if (dialog) dialog.close();
 
@@ -9,9 +17,11 @@ function update(token) {
     interval = null;
     dialog = null;
 
-    $value = token;
-
-    $close();
+    if (typeof $close !== "undefined") {
+        $close();
+    } else {
+        document.getElementById("account-linked").style.display = "flex";
+    }
 }
 
 function message(event) {

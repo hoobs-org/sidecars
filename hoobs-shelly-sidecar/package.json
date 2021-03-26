@@ -1,0 +1,16 @@
+{
+    "name": "hoobs-shelly-sidecar",
+    "version": "1.0.1",
+    "description": "HOOBS Plugin for Shelly.",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/hoobs-org/sidecars.git"
+    },
+    "bugs": {
+        "url": "https://github.com/hoobs-org/sidecars/issues"
+    },
+    "author": {
+        "name": "Michael Kellsy"
+    }
+}

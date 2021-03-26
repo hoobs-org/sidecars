@@ -1,0 +1,60 @@
+html,
+body {
+    padding: 0;
+    margin: 0;
+    height: 100%;
+}
+
+body {
+    font-family: sans-serif;
+}
+
+#gsh {
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+}
+
+#gsh .action {
+    padding: 0;
+}
+
+#gsh .content {
+    align-items: center;
+    justify-content: space-around;
+    padding: 0 0 10% 0;
+}
+
+#gsh .logo {
+    width: 100px;
+    height: 100px;
+}
+
+#gsh .wrapper {
+    flex: unset;
+    width: auto;
+}
+
+#gsh .wrapper .row {
+    display: flex;
+    align-items: center;
+}
+
+#gsh .wrapper .row .message {
+    display: flex;
+    flex-direction: column;
+    padding: 0 0 0 20px;
+}
+
+#gsh .wrapper .row .message h3 {
+    font-size: 27px;
+    margin: 0 0 5px 0;
+    padding: 0;
+    line-height: normal;
+}
+
+#gsh .wrapper .row .message p {
+    margin: 0;
+}

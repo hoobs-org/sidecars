@@ -1,0 +1,60 @@
+html,
+body {
+    padding: 0;
+    margin: 0;
+    height: 100%;
+}
+
+body {
+    font-family: sans-serif;
+}
+
+#honeywell {
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+}
+
+#honeywell .action {
+    padding: 0;
+}
+
+#honeywell .content {
+    align-items: center;
+    justify-content: space-around;
+    padding: 0 0 10% 0;
+}
+
+#honeywell .logo {
+    width: 100px;
+    height: 100px;
+}
+
+#honeywell .wrapper {
+    flex: unset;
+    width: auto;
+}
+
+#honeywell .wrapper .row {
+    display: flex;
+    align-items: center;
+}
+
+#honeywell .wrapper .row .message {
+    display: flex;
+    flex-direction: column;
+    padding: 0 0 0 20px;
+}
+
+#honeywell .wrapper .row .message h3 {
+    font-size: 30px;
+    margin: 0 0 10px 0;
+    padding: 0;
+    line-height: normal;
+}
+
+#honeywell .wrapper .row .message p {
+    margin: 0;
+}

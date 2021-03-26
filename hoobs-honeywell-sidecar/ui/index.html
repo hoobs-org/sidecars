@@ -2,8 +2,24 @@
     <head>
         <title>Honeywell Home Login</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="style.css">
     </head>
     <body>
+        <div id="honeywell">
+            <div class="content">
+                <div class="wrapper">
+                    <div class="row">
+                        <img class="logo" src="logo.png" />
+                        <div id="account-linked" class="message" style="display: none;">
+                            <h3>Account Linked</h3>
+                            <p>
+                                You can close this window.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <script src="sdk.js"></script>
         <script src="app.js"></script>
     </body>

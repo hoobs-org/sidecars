@@ -1,25 +1,14 @@
 let interval, dialog;
 
-function search() {
-    const query = (window.location.search || "").split("&").map((entry) => {
-        const pairs = entry.split("=");
+$hoobs.config.setup();
 
-        return {
-            key: pairs.shift(),
-            value: pairs.shift(),
-        }
-    });
+async function update(token) {
+    const config = await $hoobs.config.get();
 
-    const results = {};
+    config.credentials.refreshToken = token;
 
-    for (let i = 0; i < query.length; i += 1) {
-        results[query[i].key] = query[i].value;
-    }
+    await $hoobs.config.update(config);
 
-    return results;
-}
-
-function update(token) {
     if (interval) clearInterval(interval);
     if (dialog) dialog.close();
 
@@ -28,9 +17,11 @@ function update(token) {
     interval = null;
     dialog = null;
 
-    $value = token;
-
-    $close();
+    if (typeof $close !== "undefined") {
+        $close();
+    } else {
+        document.getElementById("account-linked").style.display = "flex";
+    }
 }
 
 function message(event) {
@@ -43,23 +34,21 @@ function message(event) {
     }
 }
 
-const query = search();
+(async () => {
+    const config = await $hoobs.config.get();
 
-$hoobs.config.setup(query.token)
+    window.addEventListener("message", message, false);
 
-window.addEventListener("message", message, false);
+    const horz = (window.screen.width / 2) - (760 / 2);
+    const vert = ((window.screen.height / 2) - (760 / 2)) / 2;
 
-const horz = (window.screen.width / 2) - (760 / 2);
-const vert = ((window.screen.height / 2) - (760 / 2)) / 2;
-const key = window.$config ? encodeURIComponent(window.$config.consumerKey) : "";
-const secret = window.$config ? encodeURIComponent(window.$config.consumerSecret) : "";
+    dialog = window.open(
+        `https://homebridge-honeywell.iot.oz.nu?consumerKey=${(config || {}).credentials ? encodeURIComponent(config.credentials.consumerKey) : ""}&consumerSecret=${(config || {}).credentials ? encodeURIComponent(config.credentials.consumerSecret) : ""}`,
+        "honeywell",
+        `toolbar=no,status=no,menubar=no,resizable=yes,width=760,height=760,top=${vert},left=${horz}`,
+    );
 
-dialog = window.open(
-    `https://homebridge-honeywell.iot.oz.nu?consumerKey=${key}&consumerSecret=${secret}`,
-    "honeywell",
-    `toolbar=no,status=no,menubar=no,resizable=yes,width=760,height=760,top=${vert},left=${horz}`,
-);
-
-interval = setInterval(() => {
-    dialog.postMessage("origin-check", "https://homebridge-honeywell.iot.oz.nu");
-}, 2000);
+    interval = setInterval(() => {
+        dialog.postMessage("origin-check", "https://homebridge-honeywell.iot.oz.nu");
+    }, 2000);
+})();
