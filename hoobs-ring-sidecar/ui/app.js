@@ -38,8 +38,8 @@ async function login() {
     }
 
     if (response.refresh_token) {
-        $value = response.refresh_token;
+        await $hoobs.plugin($bridge, "homebridge-ring", "save", { token: response.refresh_token });
 
-        $close();
+        $close(true);
     }
 }

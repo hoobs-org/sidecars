@@ -26,13 +26,15 @@ function message(event) {
 
 window.addEventListener("message", message, false);
 
-const left = (window.screen.width / 2) - (760 / 2);
-const top = ((window.screen.height / 2) - (760 / 2)) / 2;
+const horz = (window.screen.width / 2) - (760 / 2);
+const vert = ((window.screen.height / 2) - (760 / 2)) / 2;
 
 dialog = window.open(
     "https://homebridge-gsh.iot.oz.nu/link-account",
     "google-home",
-    `toolbar=no,status=no,menubar=no,resizable=yes,width=760,height=760,top=${top},left=${left}`,
+    `toolbar=no,status=no,menubar=no,resizable=yes,width=760,height=760,top=${vert},left=${horz}`,
 );
 
-interval = setInterval(() => { dialog.postMessage("origin-check", "https://homebridge-gsh.iot.oz.nu"); }, 2000);
+interval = setInterval(() => {
+    dialog.postMessage("origin-check", "https://homebridge-gsh.iot.oz.nu");
+}, 2000);

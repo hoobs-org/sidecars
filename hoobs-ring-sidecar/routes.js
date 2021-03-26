@@ -1,6 +1,6 @@
 const axios = require("axios");
 
-async function login(logger, _config, _api, request, response) {
+async function login(logger, request, response) {
     let results;
 
     try {
@@ -30,6 +30,12 @@ async function login(logger, _config, _api, request, response) {
     }
 }
 
+async function save(config, request, response) {
+    config.set("refreshToken", request.body.token);
+    response.send({ success: true });
+}
+
 module.exports = (logger, config, api) => {
-    api.registerRoute("login", (request, response) => login(logger, config, api, request, response));
+    api.registerRoute("login", (request, response) => login(logger, request, response));
+    api.registerRoute("save", (request, response) => save(config, request, response));
 };
