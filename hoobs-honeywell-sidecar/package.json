@@ -1,6 +1,6 @@
 {
     "name": "hoobs-honeywell-sidecar",
-    "version": "1.0.10",
+    "version": "1.0.12",
     "description": "HOOBS Plugin for Honeywell Home.",
     "license": "MIT",
     "repository": {

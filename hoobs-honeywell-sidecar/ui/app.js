@@ -43,7 +43,7 @@ function message(event) {
     const vert = ((window.screen.height / 2) - (760 / 2)) / 2;
 
     dialog = window.open(
-        `https://homebridge-honeywell.iot.oz.nu?consumerKey=${(config || {}).credentials ? encodeURIComponent(config.credentials.consumerKey) : ""}&consumerSecret=${(config || {}).credentials ? encodeURIComponent(config.credentials.consumerSecret) : ""}`,
+        `https://homebridge-honeywell.iot.oz.nu/link-account?consumerKey=${(config || {}).credentials ? encodeURIComponent(config.credentials.consumerKey) : ""}&consumerSecret=${(config || {}).credentials ? encodeURIComponent(config.credentials.consumerSecret) : ""}`,
         "honeywell",
         `toolbar=no,status=no,menubar=no,resizable=yes,width=760,height=760,top=${vert},left=${horz}`,
     );
