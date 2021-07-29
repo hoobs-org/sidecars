@@ -30,7 +30,7 @@ async function login(logger, request, response) {
     }
 }
 
-async function save(config, request, response) {
+function save(config, request, response) {
     config.set("refreshToken", request.body.token);
     response.send({ success: true });
 }

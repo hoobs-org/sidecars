@@ -1,0 +1,87 @@
+html,
+body {
+    padding: 0;
+    margin: 0;
+    height: 100%;
+}
+
+body {
+    font-family: sans-serif;
+}
+
+#nest {
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    flex-direction: column;
+}
+
+#nest .button {
+    width: 100%;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin: 7px 0 0 0;
+    padding: 10.5px 10px 9.5px 10px;
+    box-sizing: border-box;
+    color: #fff;
+    text-decoration: none !important;
+    white-space: pre;
+    border: 1px #feb400 solid;
+    border-radius: 4px;
+    background: #feb400;
+    cursor: pointer;
+    user-select: none;
+}
+
+#nest .content {
+    flex: 1;
+    align-items: center;
+    justify-content: space-around;
+    padding: 0 0 7px 0;
+    color: #464646;
+    font-size: 14px;
+}
+
+#nest .logo {
+    height: 80px;
+    align-self: center;
+    margin: 70px 0;
+}
+
+#nest .form {
+    flex: unset;
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+#nest .form .row {
+    display: flex;
+}
+
+#nest .form .row.center {
+    justify-content: space-around;
+}
+
+#nest .form .row .title {
+    font-weight: bold;
+    font-size: 14px;
+}
+
+#nest .form .field {
+    width: 100%;
+    padding: 16px;
+    color: #4c4c4c;
+    background: #fff;
+    border: 1px #dee5ec solid;
+    border-radius: 4px;
+}
+
+#nest .form .field:focus {
+    background: #fff;
+    border: 1px #feb400 solid;
+    box-shadow: 0 2px 4px rgb(0 0 0 / 20%);
+    outline: 0;
+}

@@ -1,0 +1,50 @@
+<html>
+    <head>
+        <title>Nest Login</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <div id="nest">
+            <div class="content">
+                <form class="form">
+                    <div class="row center">
+                        <img class="logo" src="title-logo.png" />
+                    </div>
+                    <div class="row item login" style="display: none;">
+                        <div class="title">Login to Nest</div>
+                    </div>
+                    <div class="row item login" style="display: none;">
+                        <p>
+                            First you will need to login to Google and get a one time access code. This will open a new dialog.
+                        </p>
+                    </div>
+                    <div class="row item login" style="display: none;">
+                        <img style="height: 250px;" src="access-token.png" />
+                    </div>
+                    <div class="row item login" style="display: none;">
+                        <p>
+                            When you see the screen above, copy the code and enter it the next step.
+                        </p>
+                    </div>
+                    <div class="row item login" style="display: none;">
+                        <div class="button" onclick="login();">Login</div>
+                    </div>
+                    <div class="row item answer" style="display: none;">
+                        <p>
+                            Enter your access code below.
+                        </p>
+                    </div>
+                    <div class="row item answer" style="display: none;">
+                        <input class="field" id="code" type="text" autocomplete="false" />
+                    </div>
+                    <div class="row item answer" style="display: none;">
+                        <div class="button" onclick="answer();">Complete Setup</div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <script src="sdk.js"></script>
+        <script src="app.js"></script>
+    </body> 
+</html>
