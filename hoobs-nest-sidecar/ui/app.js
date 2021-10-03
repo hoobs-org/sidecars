@@ -35,34 +35,14 @@ async function answer() {
 
     const refresh = (await $hoobs.plugin($bridge, $plugin, "token", { code: document.querySelector("#code").value })).token;
 
-    switch ($plugin) {
-        case "homebridge-nest":
-            const access = refresh ? (await $hoobs.plugin($bridge, $plugin, "access", { token: refresh })).token : undefined;
+    if (refresh) {
+        await $hoobs.plugin($bridge, $plugin, "save", { field: "refreshToken", token: refresh });
 
-            if (access) {
-                await $hoobs.plugin($bridge, $plugin, "save", { field: "access_token", token: access });
-        
-                $close(true);
-            } else {
-                console.log(response);
-        
-                step("login");
-            }
+        $close(true);
+    } else {
+        console.log(response);
 
-            break;
-
-        case "homebridge-nest-cam":
-            if (refresh) {
-                await $hoobs.plugin($bridge, $plugin, "save", { field: "refreshToken", token: refresh });
-        
-                $close(true);
-            } else {
-                console.log(response);
-        
-                step("login");
-            }
-
-            break;
+        step("login");
     }
 }
 

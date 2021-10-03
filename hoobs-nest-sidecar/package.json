@@ -1,6 +1,6 @@
 {
     "name": "hoobs-nest-sidecar",
-    "version": "1.0.0",
+    "version": "1.0.1",
     "description": "HOOBS Plugin for Nest.",
     "license": "MIT",
     "repository": {
