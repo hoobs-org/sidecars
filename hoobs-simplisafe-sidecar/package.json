@@ -1,0 +1,20 @@
+{
+    "name": "hoobs-simplisafe-sidecar",
+    "version": "1.0.1",
+    "description": "HOOBS Plugin for SimpliSafe.",
+    "license": "MIT",
+    "repository": {
+        "type": "git",
+        "url": "git://github.com/hoobs-org/sidecars.git"
+    },
+    "bugs": {
+        "url": "https://github.com/hoobs-org/sidecars/issues"
+    },
+    "main": "routes.js",
+    "author": {
+        "name": "Michael Kellsy"
+    },
+    "dependencies": {
+        "axios": "^0.21.1"
+    }
+}
