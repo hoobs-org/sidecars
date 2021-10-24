@@ -1,17 +1,25 @@
 const axios = require("axios");
-const querystring = require("querystring");
 
 function redirect(_logger, _config, _api, _request, response) {
-    return response.send({ url: `https://accounts.google.com/o/oauth2/auth/oauthchooseaccount?${querystring.stringify({
+    const data = new URLSearchParams({
         access_type: "offline",
         response_type: "code",
         scope: "openid profile email https://www.googleapis.com/auth/nest-account",
         redirect_uri: "urn:ietf:wg:oauth:2.0:oob",
         client_id: "733249279899-1gpkq9duqmdp55a7e5lft1pr2smumdla.apps.googleusercontent.com",
-    })}` });
+    });
+
+    return response.send({ url: `https://accounts.google.com/o/oauth2/auth/oauthchooseaccount?${data.toString()}` });
 }
 
 async function token(_logger, _config, _api, request, response) {
+    const data = new URLSearchParams({
+        code: request.body.code,
+        redirect_uri: "urn:ietf:wg:oauth:2.0:oob",
+        client_id: "733249279899-1gpkq9duqmdp55a7e5lft1pr2smumdla.apps.googleusercontent.com",
+        grant_type: "authorization_code",
+    });
+
     try {
         return response.send({
             token: ((await axios({
@@ -22,12 +30,7 @@ async function token(_logger, _config, _api, request, response) {
                     "Content-Type": "application/x-www-form-urlencoded",
                     "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.120 Safari/537.36",
                 },
-                data: querystring.stringify({
-                    code: request.body.code,
-                    redirect_uri: "urn:ietf:wg:oauth:2.0:oob",
-                    client_id: "733249279899-1gpkq9duqmdp55a7e5lft1pr2smumdla.apps.googleusercontent.com",
-                    grant_type: "authorization_code",
-                }),
+                data: data.toString(),
             })).data || {}).refresh_token,
         });
     } catch (error) {
@@ -40,6 +43,12 @@ async function token(_logger, _config, _api, request, response) {
 }
 
 async function access(_logger, _config, _api, request, response) {
+    const data = new URLSearchParams({
+        refresh_token: request.body.token,
+        client_id: "733249279899-1gpkq9duqmdp55a7e5lft1pr2smumdla.apps.googleusercontent.com",
+        grant_type: 'refresh_token',
+    });
+
     try {
         return response.send({
             token: ((await axios({
@@ -50,11 +59,7 @@ async function access(_logger, _config, _api, request, response) {
                     "Content-Type": "application/x-www-form-urlencoded",
                     "User-Agent": "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_0) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/77.0.3865.120 Safari/537.36",
                 },
-                data: querystring.stringify({
-                    refresh_token: request.body.token,
-                    client_id: "733249279899-1gpkq9duqmdp55a7e5lft1pr2smumdla.apps.googleusercontent.com",
-                    grant_type: 'refresh_token',
-                }),
+                data: data.toString(),
             })).data || {}).access_token,
         });
     } catch (error) {
