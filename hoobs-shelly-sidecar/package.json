@@ -1,6 +1,6 @@
 {
     "name": "hoobs-shelly-sidecar",
-    "version": "1.0.9",
+    "version": "1.0.10",
     "description": "HOOBS Plugin for Shelly.",
     "license": "MIT",
     "repository": {
