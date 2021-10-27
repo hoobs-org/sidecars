@@ -1,0 +1,100 @@
+html,
+body {
+    padding: 0;
+    margin: 0;
+    height: 100%;
+}
+
+body {
+    font-family: sans-serif;
+}
+
+#vivint {
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+}
+
+#vivint .action {
+    padding: 0;
+}
+
+#vivint .content {
+    align-items: center;
+    justify-content: space-around;
+    padding: 0 0 10% 0;
+}
+
+#vivint .logo {
+    width: 272px;
+    height: 60px;
+    margin: 0 0 14px 0;
+}
+
+#vivint .logo path,
+#vivint .logo rect {
+    fill: #212721
+}
+
+#vivint .form {
+    flex: unset;
+    width: 520px;
+}
+
+#vivint .form .label {
+    font-size: 14px;
+    color: #4c4c4c;
+    margin: 14px 0 8px 0;
+}
+
+#vivint .form .row {
+    display: flex;
+}
+
+#vivint .form .row.actions {
+    flex-direction: column;
+    padding: 7px 0 0 0;
+}
+
+#vivint .form .button {
+    width: 100%;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin: 7px 0 0 0;
+    padding: 10.5px 10px 9.5px 10px;
+    box-sizing: border-box;
+    color: #212721;
+    text-decoration: none !important;
+    white-space: pre;
+    border: 1px #e8bb6b solid;
+    border-radius: 4px;
+    background: #e8bb6b;
+    cursor: pointer;
+    user-select: none;
+}
+
+#vivint .form .button.cancel {
+    color: #4c4c4c !important;
+    border: 1px #dee5ec solid;
+    background: #fff;
+}
+
+#vivint .form .field {
+    width: 100%;
+    padding: 16px;
+    color: #4c4c4c;
+    background: #fafbfc;
+    border: 1px #dee5ec solid;
+    border-radius: 4px;
+}
+
+#vivint .form .field:focus {
+    background: #fff;
+    border: 1px #eee solid;
+    box-shadow: 0 2px 4px rgb(0 0 0 / 20%);
+    outline: 0;
+}

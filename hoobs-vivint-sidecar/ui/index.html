@@ -1,0 +1,54 @@
+<html>
+    <head>
+        <title>Vivint Login</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="style.css">
+        <script src="sdk.js"></script>
+    </head>
+    <body>
+        <div id="vivint">
+            <div class="content">
+                <form class="form">
+                    <input id="token" type="hidden" />
+                    <div class="row">
+                        <svg class="logo" viewBox="0 0 1629.23 360">
+                            <path d="M388.15,273.92a41.7,41.7,0,1,1-.56,0Z" />
+                            <path d="M162.83,88.84l94,87.73v111h-188v-111l94-87.73m0-88.83A14.38,14.38,0,0,0,153,3.91L9.2,138.08A29,29,0,0,0,0,159.24V342a14.47,14.47,0,0,0,14.48,14.47H311.17A14.47,14.47,
+                                     0,0,0,325.65,342h0V159.23a29,29,0,0,0-9.2-21.16L172.7,3.9A14.39,14.39,0,0,0,162.82,0Z"></path><path data-v-1b374500="" d="M754.43,0a41,41,0,1,1-.56,0Z" />
+                            <path d="M1134.9,0a41,41,0,1,1-.56,0Z" />
+                            <rect x="720.3" y="103.72" width="68.31" height="252.7" />
+                            <rect x="1100.74" y="103.72" width="68.31" height="252.7" />
+                            <path d="M1279.82,356.41h-68.31V103.72h68.31v28.05C1295.76,107.86,1324.64,97,1350.7,97c62.66,0,91.42,44.68,91.42,100.15V356.41h-68.3V209c0-28.25-13.87-50.33-46.74-50.33-29.79,
+                                     0-47.26,23.11-47.26,52.39Z"></path><path data-v-1b374500="" d="M429.4,103.71l100.66,252.7h68.31l100.68-252.7h-75L564.22,273.94,504.38,103.71Z" />
+                            <path d="M809.85,103.71l100.66,252.7h68.31l100.67-252.7h-75L944.67,273.94,884.84,103.72Z"></path><path data-v-1b374500="" d="M1566.42,172v98.1c0,22.1,12.18,29.29,31.68,
+                                     29.26a149.94,149.94,0,0,0,31.13-3.06v54c-7.33,3.2-22.6,9.71-50.49,9.71-49.31,0-80.13-29.28-80.13-78.07V172h-42.32V103.71h42.33V29.4h67.81v74.31h62.8V172Z" />
+                        </svg>
+                    </div>
+                    <div class="row login" style="display: flex;">
+                        <div class="label">Email</div>
+                    </div>
+                    <div class="row login" style="display: flex;">
+                        <input class="field" id="email" type="email" autocomplete="false" />
+                    </div>
+                    <div class="row login" style="display: flex;">
+                        <div class="label">Password</div>
+                    </div>
+                    <div class="row login" style="display: flex;">
+                        <input class="field" id="password" type="password" autocomplete="false" />
+                    </div>
+                    <div class="row validate" style="display: none;">
+                        <div class="label">Verification Code</div>
+                    </div>
+                    <div class="row validate" style="display: none;">
+                        <input class="field" id="code" type="text" autocomplete="false" />
+                    </div>
+                    <div class="row actions">
+                        <div class="button login" onclick="login();" style="display: flex;">Login</div>
+                        <div class="button validate" onclick="validate();" style="display: none;">Verify Code</div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <script src="app.js"></script>
+    </body>
+</html>
