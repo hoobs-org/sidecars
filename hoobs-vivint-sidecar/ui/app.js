@@ -1,5 +1,7 @@
 $hoobs.config.setup();
 
+const spinner = document.querySelector(".spinner");
+
 const fields = {
     login: document.querySelectorAll(".login"),
     validate: document.querySelectorAll(".validate"),
@@ -8,6 +10,8 @@ const fields = {
     token: document.querySelector("#token"),
     code: document.querySelector("#code")
 };
+
+spinner.style.display = "none";
 
 for (let i = 0; i < fields.login.length; i += 1) {
     fields.login[i].style.display = "flex";
@@ -23,12 +27,18 @@ async function login() {
     const email = fields.email.value;
     const password = fields.password.value;
 
-    const response = await $hoobs.plugin($bridge, "@balansse/homebridge-vivint", "login", { email, password, verification });
+    for (let i = 0; i < fields.login.length; i += 1) {
+        fields.login[i].style.display = "none";
+    }
 
-    if (response.error) {
-        alert("Invalid Username or Password");
-    } else if (response.status === 401) {
+    spinner.style.display = "flex";
+
+    const response = await $hoobs.plugin($bridge, "@balansse/homebridge-vivint", "login", { email, password });
+
+    if (response.status === 401) {
         fields.token.value = response.token;
+
+        spinner.style.display = "none";
 
         for (let i = 0; i < fields.login.length; i += 1) {
             fields.login[i].style.display = "none";
@@ -43,6 +53,12 @@ async function login() {
         await $hoobs.plugin($bridge, "@balansse/homebridge-vivint", "save", { token: response.token });
 
         $close(true);
+    } else {
+        spinner.style.display = "none";
+
+        for (let i = 0; i < fields.login.length; i += 1) {
+            fields.login[i].style.display = "flex";
+        }
     }
 }
 
@@ -50,13 +66,23 @@ async function validate() {
     const code = fields.verification.value;
     const token = fields.token.value;
 
+    for (let i = 0; i < fields.validate.length; i += 1) {
+        fields.validate[i].style.display = "none";
+    }
+
+    spinner.style.display = "flex";
+
     const response = await $hoobs.plugin($bridge, "@balansse/homebridge-vivint", "validate", { token, code });
 
-    if (response.error) {
-        alert("Invalid Verification Code");
-    } else if (response.status === 200) {
+    if (response.status === 200) {
         await $hoobs.plugin($bridge, "@balansse/homebridge-vivint", "save", { token: response.token });
 
         $close(true);
+    } else {
+        spinner.style.display = "none";
+
+        for (let i = 0; i < fields.validate.length; i += 1) {
+            fields.validate[i].style.display = "flex";
+        }
     }
 }

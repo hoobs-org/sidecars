@@ -41,6 +41,7 @@ body {
 #vivint .form {
     flex: unset;
     width: 520px;
+    height: 306px;
 }
 
 #vivint .form .label {
@@ -97,4 +98,136 @@ body {
     border: 1px #eee solid;
     box-shadow: 0 2px 4px rgb(0 0 0 / 20%);
     outline: 0;
+}
+
+#vivint .form .spinner {
+    margin: 10px 0 0 0;
+    display: none;
+    align-content: center;
+    align-items: center;
+}
+
+#vivint .form .spinner .inner {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+}
+
+#vivint .form .spinner .inner .grid {
+    width: 36px;
+    height: 36px;
+    position: relative;
+    box-sizing: border-box;
+    display: block;
+    font-size: 0;
+    color: #212721;
+}
+
+#vivint .form .spinner .inner .grid > div {
+    width: 8px;
+    height: 8px;
+    margin: 2px;
+    border-radius: 100%;
+    animation-name: grid-beat;
+    animation-iteration-count: infinite;
+    position: relative;
+    box-sizing: border-box;
+    display: inline-block;
+    float: none;
+    background-color: currentColor;
+    border: 0 solid currentColor;
+}
+
+#vivint .form .spinner .inner .grid > div:nth-child(1) {
+    animation-duration: .65s;
+    animation-delay: .03s;
+}
+
+#vivint .form .spinner .inner .grid > div:nth-child(2) {
+    animation-duration: 1.02s;
+    animation-delay: .09s;
+}
+
+#vivint .form .spinner .inner .grid > div:nth-child(3) {
+    animation-duration: 1.06s;
+    animation-delay: -.69s;
+}
+
+#vivint .form .spinner .inner .grid > div:nth-child(4) {
+    animation-duration: 1.5s;
+    animation-delay: -.41s;
+}
+
+#vivint .form .spinner .inner .grid > div:nth-child(5) {
+    animation-duration: 1.6s;
+    animation-delay: .04s;
+}
+
+#vivint .form .spinner .inner .grid > div:nth-child(6) {
+    animation-duration: .84s;
+    animation-delay: .07s;
+}
+
+#vivint .form .spinner .inner .grid > div:nth-child(7) {
+    animation-duration: .68s;
+    animation-delay: -.66s;
+}
+
+#vivint .form .spinner .inner .grid > div:nth-child(8) {
+    animation-duration: .93s;
+    animation-delay: -.76s;
+}
+
+#vivint .form .spinner .inner .grid > div:nth-child(9) {
+    animation-duration: 1.24s;
+    animation-delay: -.76s;
+}
+
+@-webkit-keyframes grid-beat {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: .35;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@-moz-keyframes grid-beat {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: .35;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@-o-keyframes grid-beat {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: .35;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes grid-beat {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: .35;
+    }
+    100% {
+        opacity: 1;
+    }
 }
