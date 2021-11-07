@@ -48,7 +48,7 @@ async function login() {
             fields.validate[i].style.display = "flex";
         }
 
-        fields.verification.focus();
+        fields.code.focus();
     } else if (response.status === 200) {
         await $hoobs.plugin($bridge, "@balansse/homebridge-vivint", "save", { token: response.token });
 
@@ -63,7 +63,7 @@ async function login() {
 }
 
 async function validate() {
-    const code = fields.verification.value;
+    const code = fields.code.value;
     const token = fields.token.value;
 
     for (let i = 0; i < fields.validate.length; i += 1) {
