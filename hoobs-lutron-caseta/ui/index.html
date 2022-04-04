@@ -1,0 +1,59 @@
+<html>
+    <head>
+        <title>Lutron Caseta</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="style.css">
+        <script src="sdk.js"></script>
+    </head>
+    <body>
+        <div id="caseta">
+            <div class="content">
+                <form class="form">
+                    <div class="row">
+                        <img class="logo" src="logo.jpg">
+                    </div>
+                    <div id="scanning" style="display: none;">
+                        <div class="row">
+                            <p>
+                                Searching for SmartBridges
+                            </p>
+                        </div>
+                        <div class="row">
+                            <div class="spinner">
+                                <div class="inner">
+                                    <div class="grid">
+                                        <div></div>
+                                        <div></div>
+                                        <div></div>
+                                        <div></div>
+                                        <div></div>
+                                        <div></div>
+                                        <div></div>
+                                        <div></div>
+                                        <div></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div id="retry" style="display: none;">
+                        <div class="row">
+                            <div class="button" onclick="scan();">Retry</div>
+                        </div>
+                    </div>
+                    <div class="frameset">
+                        <div class="row">
+                            <p>
+                                Press the round button on the back of your SmartBridge to pair.
+                            </p>
+                        </div>
+                        <div class="row">
+                            <img src="button.jpg">
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <script src="app.js"></script>
+    </body>
+</html>

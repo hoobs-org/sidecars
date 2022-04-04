@@ -1,0 +1,207 @@
+html,
+body {
+    padding: 0;
+    margin: 0;
+    height: 100%;
+}
+
+body {
+    font-family: sans-serif;
+}
+
+#caseta {
+    height: 100%;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+}
+
+#caseta .action {
+    padding: 0;
+}
+
+#caseta .content {
+    align-items: center;
+    justify-content: space-around;
+    padding: 0 0 10% 0;
+}
+
+#caseta .logo {
+    width: 60% !important;
+}
+
+#caseta .form {
+    flex: unset;
+    width: 520px;
+}
+
+#caseta .form .row {
+    display: flex;
+}
+
+#caseta .form .row p {
+    text-align: center;
+    margin: 0 auto;
+}
+
+#caseta .form .row img {
+    width: 80%;
+    margin: 0 auto;
+}
+
+#caseta .form .frameset {
+    border: 1px #d4d4d4 solid;
+    border-radius: 3px;
+    padding: 20px;
+}
+
+#caseta .form .button {
+    height: 40px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: space-around;
+    margin: 7px 0 0 0;
+    padding: 10.5px 40px 9.5px 40px;
+    margin: 0 auto 20px auto;
+    box-sizing: border-box;
+    color: #fff;
+    text-decoration: none !important;
+    white-space: pre;
+    border: 1px #1998d5 solid;
+    border-radius: 4px;
+    background: #1998d5;
+    cursor: pointer;
+    user-select: none;
+}
+
+#caseta .spinner {
+    margin: 20px auto;
+    align-content: center;
+    align-items: center;
+}
+
+#caseta .spinner .inner {
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    align-items: center;
+}
+
+#caseta .spinner .inner .grid {
+    width: 36px;
+    height: 36px;
+    position: relative;
+    box-sizing: border-box;
+    display: block;
+    font-size: 0;
+    color: #0098d7;
+}
+
+#caseta .spinner .inner .grid > div {
+    width: 8px;
+    height: 8px;
+    margin: 2px;
+    border-radius: 100%;
+    animation-name: grid-beat;
+    animation-iteration-count: infinite;
+    position: relative;
+    box-sizing: border-box;
+    display: inline-block;
+    float: none;
+    background-color: currentColor;
+    border: 0 solid currentColor;
+}
+
+#caseta .spinner .inner .grid > div:nth-child(1) {
+    animation-duration: .65s;
+    animation-delay: .03s;
+}
+
+#caseta .spinner .inner .grid > div:nth-child(2) {
+    animation-duration: 1.02s;
+    animation-delay: .09s;
+}
+
+#caseta .spinner .inner .grid > div:nth-child(3) {
+    animation-duration: 1.06s;
+    animation-delay: -.69s;
+}
+
+#caseta .spinner .inner .grid > div:nth-child(4) {
+    animation-duration: 1.5s;
+    animation-delay: -.41s;
+}
+
+#caseta .spinner .inner .grid > div:nth-child(5) {
+    animation-duration: 1.6s;
+    animation-delay: .04s;
+}
+
+#caseta .spinner .inner .grid > div:nth-child(6) {
+    animation-duration: .84s;
+    animation-delay: .07s;
+}
+
+#caseta .spinner .inner .grid > div:nth-child(7) {
+    animation-duration: .68s;
+    animation-delay: -.66s;
+}
+
+#caseta .spinner .inner .grid > div:nth-child(8) {
+    animation-duration: .93s;
+    animation-delay: -.76s;
+}
+
+#caseta .spinner .inner .grid > div:nth-child(9) {
+    animation-duration: 1.24s;
+    animation-delay: -.76s;
+}
+
+@-webkit-keyframes grid-beat {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: .35;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@-moz-keyframes grid-beat {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: .35;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@-o-keyframes grid-beat {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: .35;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+@keyframes grid-beat {
+    0% {
+        opacity: 1;
+    }
+    50% {
+        opacity: .35;
+    }
+    100% {
+        opacity: 1;
+    }
+}
