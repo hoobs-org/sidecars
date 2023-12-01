@@ -11,7 +11,10 @@ async function login(logger, request, response) {
             persist_session: true,
         });
 
-        refresh = results.headers["set-cookie"][0].split(";")[0];
+        refresh = results.headers["set-cookie"].filter((cookie) => cookie.startsWith("s="))[0];
+        if (refresh) {
+            refresh = refresh.split(";")[0];
+        }
     } catch (error) {
         logger.error("vivint login failed");
         logger.error(error.message);
@@ -22,10 +25,19 @@ async function login(logger, request, response) {
     try {
         results = await axios.get("https://www.vivintsky.com/api/authuser", { headers: { "Cookie": refresh } });
 
-        return response.send({ status: results.status, token: results.headers["set-cookie"][0].split(";")[0] });
+        let newRefreshToken = results.headers["set-cookie"].filter((cookie) => cookie.startsWith("s="))[0];
+        if (newRefreshToken) {
+            newRefreshToken = newRefreshToken.split(";")[0];
+        }
+
+        return response.send({ status: results.status, token: newRefreshToken });
     } catch (error) {
         if (error.response && error.response.status === 401) {
-            return response.send({ status: 401, token: error.response.headers["set-cookie"][0].split(";")[0] });
+            let newRefreshToken = error.response.headers["set-cookie"].filter((cookie) => cookie.startsWith("s="))[0];
+                if (newRefreshToken) {
+                    newRefreshToken = newRefreshToken.split(";")[0];
+                }
+            return response.send({ status: 401, token: newRefreshToken });
         }
 
         logger.error("vivint login failed");

@@ -1,20 +1,22 @@
 {
-    "name": "hoobs-vivint-sidecar",
-    "version": "1.0.2",
-    "description": "HOOBS Plugin for Vivint.",
-    "license": "MIT",
-    "repository": {
-        "type": "git",
-        "url": "git://github.com/hoobs-org/sidecars.git"
-    },
-    "bugs": {
-        "url": "https://github.com/hoobs-org/sidecars/issues"
-    },
-    "main": "routes.js",
-    "author": {
-        "name": "Michael Kellsy"
-    },
-    "dependencies": {
-        "axios": "^0.24.0"
-    }
+  "name": "@hoobs/hoobs-vivint-sidecar",
+  "version": "1.0.3",
+  "description": "HOOBS Plugin for Vivint.",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/hoobs-org/sidecars.git"
+  },
+  "bugs": {
+    "url": "https://github.com/hoobs-org/sidecars/issues"
+  },
+  "main": "routes.js",
+  "author": "HOOBS Inc.",
+  "dependencies": {
+    "axios": "^0.24.0"
+  },
+  "homepage": "https://github.com/hoobs-org/sidecars#readme",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
 }
