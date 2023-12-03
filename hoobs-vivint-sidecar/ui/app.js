@@ -1,6 +1,7 @@
 $hoobs.config.setup();
 
 const spinner = document.querySelector(".spinner");
+const errormessage = document.querySelector(".error-message");
 
 const fields = {
     login: document.querySelectorAll(".login"),
@@ -12,6 +13,7 @@ const fields = {
 };
 
 spinner.style.display = "none";
+errormessage.style.display = "none";
 
 for (let i = 0; i < fields.login.length; i += 1) {
     fields.login[i].style.display = "flex";
@@ -32,6 +34,7 @@ async function login() {
     }
 
     spinner.style.display = "flex";
+    errormessage.style.display = "none";
 
     const response = await $hoobs.plugin($bridge, "@balansse/homebridge-vivint", "login", { email, password });
 
@@ -39,6 +42,7 @@ async function login() {
         fields.token.value = response.token;
 
         spinner.style.display = "none";
+        errormessage.style.display = "none";
 
         for (let i = 0; i < fields.login.length; i += 1) {
             fields.login[i].style.display = "none";
@@ -55,6 +59,8 @@ async function login() {
         $close(true);
     } else {
         spinner.style.display = "none";
+        errormessage.textContent = "Invalid email or password";
+        errormessage.style.display = "flex";
 
         for (let i = 0; i < fields.login.length; i += 1) {
             fields.login[i].style.display = "flex";
@@ -71,6 +77,7 @@ async function validate() {
     }
 
     spinner.style.display = "flex";
+    errormessage.style.display = "none";
 
     const response = await $hoobs.plugin($bridge, "@balansse/homebridge-vivint", "validate", { token, code });
 
@@ -80,6 +87,8 @@ async function validate() {
         $close(true);
     } else {
         spinner.style.display = "none";
+        errormessage.textContent = "Invalid code entered";
+        errormessage.style.display = "flex";
 
         for (let i = 0; i < fields.validate.length; i += 1) {
             fields.validate[i].style.display = "flex";
